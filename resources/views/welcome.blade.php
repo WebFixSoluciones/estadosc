@@ -29,14 +29,11 @@
     <title>Certificados</title>
 </head>
 
-<body class="bg-gray-100 p-5">
+<body class="">
 
     <div id="primero">
-        <div class="columnac d-flex align-items-center justify-content-center  ht-100v sm-ht-30v">
-            <H3>Somos una escuela de formación de guardas de seguridad. </H3>
 
-        </div>
-        <div class="d-flex align-items-center justify-content-center  ht-100v bg-gray-100">
+        <div class="d-flex align-items-center justify-content-center  ht-100v">
             <div class="cold-flex ">
                 <div class="login-wrapper wd-300 wd-xs-350 pd-25 pd-xs-40 bg-white rounded shadow-base">
 
@@ -46,9 +43,7 @@
                         <strong> Usted no posee certificados </strong>
                     </div>
 
-                    <div class="tx-center mg-b-30">
-                        <h3>Descargue sus Certificados</h3>
-                    </div>
+                    <div class="tx-center mg-b-30"><h3>Descargue su Certificado</h3></div>
 
                     <div style=" display:flex; " class="form-group col">
                         <input type="number" id="usu_dni" name="usu_dni" class="form-control"
