@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Imports\CursosImport;
 use App\Models\CategoriaCurso;
 use App\Models\Curso;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
 
@@ -78,6 +79,16 @@ class CursoController extends Controller
         Excel::import(new CursosImport, 'uploads/excels_cursos/' . $archivo);
 
         return redirect()->route('cursos')->with('success', 'Carga realizada con exito');
+    }
+
+    public function updateImagenCurso( Request $request )
+    {
+        $curso = Curso::find($request->idCurso);
+        $file = $request->file('imagen');
+        $curso->imagen = $this->upload_global($file, 'imagenes_cursos');
+        $curso->save();
+
+        return back()->with('success', 'Actuaizacion de imagen realizada con exito');
     }
 
 

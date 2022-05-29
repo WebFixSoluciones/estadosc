@@ -40,7 +40,7 @@
           </div><!-- menu-item -->
         </a><!-- br-menu-link -->
         <ul class="br-menu-sub nav flex-column">
-          <li class="nav-item"><a href="{{route('certificados')}}" class="nav-link">Cartificados</a></li>
+          <li class="nav-item"><a href="{{route('certificados')}}" class="nav-link">Certificados</a></li>
           <li class="nav-item"><a href="{{route('cargarCertificados')}}" class="nav-link">Cargar Certificados</a></li>
         </ul>
 

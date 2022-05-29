@@ -33,6 +33,7 @@ Route::group(['prefix' => 'administrador'], function () {
     Route::post('updateCurso', [CursoController::class, 'update'])->name('updateCurso');
     Route::get('cargaCursos', [CursoController::class, 'carga'])->name('cargaCurso');
     Route::post('cargaCursos', [CursoController::class, 'cargaStore'])->name('cargaCursos_post');
+    Route::post('updateImagenCurso', [CursoController::class, 'updateImagenCurso'])->name('updateImagenCurso');
 
     Route::get('usuarios', [UserController::class, 'index'])->name('usuarios');
     Route::post('saveUsuario', [UserController::class, 'store'])->name('saveUsuario');

@@ -33,7 +33,7 @@
                                             class="fa fa-edit text-primary"></i></a>
                                     <a href="{{ route('deleteCurso', $curso->id) }}"><i
                                             class="fa fa-trash text-danger"></i></a>
-                                            <i class="fa fa-image text-warning"></i>
+                                    <i class="fa fa-image text-warning" onclick="cargarImagen({{ $curso->id }})"></i>
                                 </td>
                             </tr>
                         @endforeach
@@ -58,14 +58,14 @@
                 </div>
                 <div class="modal-body pd-25">
                     <form action="{{ route('saveCurso') }}" method="POST" accept-charset="UTF-8"
-                    enctype="multipart/form-data">
+                        enctype="multipart/form-data">
                         @csrf
                         <div class="form-group">
                             <label for="">Categoria</label>
                             <select name="idCategoria" required class="form-control" id="">
                                 <option value="">SELECCIONE</option>
                                 @foreach ($categorias as $categoria)
-                                    <option value="{{$categoria->id}}">{{$categoria->categoria}}</option>
+                                    <option value="{{ $categoria->id }}">{{ $categoria->categoria }}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -127,14 +127,14 @@
                 </div>
                 <div class="modal-body pd-25">
                     <form action="{{ route('updateCurso') }}" method="POST" accept-charset="UTF-8"
-                    enctype="multipart/form-data">
+                        enctype="multipart/form-data">
                         @csrf
                         <div class="form-group">
                             <label for="">Categoria</label>
                             <select name="idCategoria" required class="form-control" id="categoria">
                                 <option value="">SELECCIONE</option>
                                 @foreach ($categorias as $categoria)
-                                    <option value="{{$categoria->id}}">{{$categoria->categoria}}</option>
+                                    <option value="{{ $categoria->id }}">{{ $categoria->categoria }}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -180,6 +180,39 @@
     </div><!-- modal -->
 
 
+
+    <div id="modaldemo3" class="modal fade">
+        <div class="modal-dialog modal-lg" style="width: 60% !important" role="document">
+            <div class="modal-content bd-0 tx-14">
+                <div class="modal-header pd-y-20 pd-x-25">
+                    <h6 class="tx-14 mg-b-0 tx-uppercase tx-inverse tx-bold">CARGAR IMAGEN DEL CURSO</h6>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body pd-25">
+                    <form action="{{ route('updateImagenCurso') }}" method="POST" accept-charset="UTF-8"
+                        enctype="multipart/form-data">
+                        @csrf
+
+                        <div class="form-group">
+                            <label for="">Imagen</label>
+                            <input type="file" name="imagen" class="form-control">
+                            <input type="hidden" name="idCurso" id="idCursoImagen">
+                        </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="submit"
+                        class="btn btn-primary tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium">Guardar
+                        Cambios</button>
+                    <button type="button" class="btn btn-secondary tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium"
+                        data-dismiss="modal">Cerrar</button>
+                    </form>
+                </div>
+            </div>
+        </div><!-- modal-dialog -->
+    </div><!-- modal -->
 @endsection
 
 
@@ -193,13 +226,12 @@
             })
         }
 
-        function editarCurso(idCurso)
-        {
-            axios.get('/api/curso/'+idCurso).then((response) => {
+        function editarCurso(idCurso) {
+            axios.get('/api/curso/' + idCurso).then((response) => {
                 $("#curso").val(response.data.curso.curso)
                 $("#descripcion").val(response.data.curso.descripcion)
                 console.log(response.data.curso.idCategoria)
-                $("#categoria option[value="+response.data.curso.idCategoria+"]").attr("selected",true)
+                $("#categoria option[value=" + response.data.curso.idCategoria + "]").attr("selected", true)
                 $("#fecha_inicio").val(response.data.curso.fecha_inicio)
                 $("#fecha_final").val(response.data.curso.fecha_final)
                 $("#convocatoria").val(response.data.curso.convocatoria)
@@ -207,6 +239,12 @@
                 $("#modaldemo2").modal('show')
             })
         }
+
+        function cargarImagen(idCurso) {
+            $("#modaldemo3").modal('show')
+            $("#idCursoImagen").val(idCurso)
+        }
+
 
         $('#datatable1').DataTable({
             responsive: true,
