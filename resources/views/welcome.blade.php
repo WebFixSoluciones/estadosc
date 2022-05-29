@@ -29,7 +29,7 @@
     <title>Certificados</title>
 </head>
 
-<body class="">
+<body class="p-5" >
 
     <div id="primero">
 
