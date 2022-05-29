@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Certificado;
+use App\Models\Curso;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class WelcomeController extends Controller
@@ -13,7 +16,10 @@ class WelcomeController extends Controller
 
     public function home()
     {
-        return view('admin.home');
+        $usuarios = User::count();
+        $cursos = Curso::count();
+        $certificados = Certificado::count();
+        return view('admin.home', compact('usuarios', 'cursos', 'certificados'));
     }
 
     public function create()

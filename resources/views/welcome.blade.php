@@ -157,7 +157,7 @@
                 //data = JSON.parse(data);
                 console.log(data.certificado.curso.imagen)
                 /* Ruta de la Imagen */
-                image.src = 'http://localhost:8000/uploads/imagenes_cursos/' + data.certificado.curso.imagen;
+                image.src = 'https://cursos.corporativogruposur.com/uploads/imagenes_cursos/' + data.certificado.curso.imagen;
                 /* Dimensionamos y seleccionamos imagen */
 
                 image.onload = function() {
