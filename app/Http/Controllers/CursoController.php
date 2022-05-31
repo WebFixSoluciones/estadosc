@@ -2,12 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Imports\CursosImport;
-use App\Models\CategoriaCurso;
-use App\Models\Curso;
-use App\Models\User;
+use App\Imports\{CursosImport, CategoriaCurso, Curso, User};
 use Illuminate\Http\Request;
-use Maatwebsite\Excel\Facades\Excel;
+use Shuchkin\SimpleXLSX;
 
 class CursoController extends Controller
 {
@@ -76,7 +73,32 @@ class CursoController extends Controller
         $file = $request->file('cursos');
         $archivo = $this->upload_global($file, 'excels_cursos');
 
-        Excel::import(new CursosImport, 'uploads/excels_cursos/' . $archivo);
+        if ($xlsx = SimpleXLSX::parse('uploads/excels_cursos/' . $archivo)) {
+            $array = $xlsx->rows();
+        } else {
+            echo SimpleXLSX::parseError();
+        }
+
+
+        $i = 0;
+
+        foreach ($array as $row) {
+            $i++;
+            if ($i > 1) {
+                $curso =
+                    Curso::create([
+                        'idCategoria' => $row[1],
+                        'curso' => $row[2],
+                        'descripcion' => $row[3],
+                        'fecha_inicio' => $row[4],
+                        'fecha_final' => $row[5],
+                        'convocatoria' => $row[6],
+                    ]);
+            }
+        }
+
+
+        //Excel::import(new CursosImport, 'uploads/excels_cursos/' . $archivo);
 
         return redirect()->route('cursos')->with('success', 'Carga realizada con exito');
     }
