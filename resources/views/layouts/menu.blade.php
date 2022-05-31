@@ -35,7 +35,19 @@
         <a href="#" class="br-menu-link">
           <div class="br-menu-item">
             <i class="menu-item-icon icon ion-ios-briefcase-outline tx-22"></i>
-            <span class="menu-item-label">Certifricados</span>
+            <span class="menu-item-label">Certificados</span>
+            <i class="menu-item-arrow fa fa-angle-down"></i>
+          </div><!-- menu-item -->
+        </a><!-- br-menu-link -->
+        <ul class="br-menu-sub nav flex-column">
+          <li class="nav-item"><a href="{{route('certificados')}}" class="nav-link">Certificados</a></li>
+          <li class="nav-item"><a href="{{route('cargarCertificados')}}" class="nav-link">Cargar Certificados</a></li>
+        </ul>
+
+        <a href="#" class="br-menu-link">
+          <div class="br-menu-item">
+            <i class="menu-item-icon icon ion-ios-file tx-22"></i>
+            <span class="menu-item-label">Archivos Modelos</span>
             <i class="menu-item-arrow fa fa-angle-down"></i>
           </div><!-- menu-item -->
         </a><!-- br-menu-link -->

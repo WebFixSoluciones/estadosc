@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Imports\{CursosImport, CategoriaCurso, Curso, User};
+use App\Models\{CategoriaCurso, Curso, User};
 use Illuminate\Http\Request;
 use Shuchkin\SimpleXLSX;
 
