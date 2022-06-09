@@ -39,6 +39,7 @@
     <!-- Bracket CSS -->
     <link rel="stylesheet" href="{{asset('css/bracket.css')}}">
     <link href="{{asset('lib/datatables/jquery.dataTables.css')}}" rel="stylesheet">
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   </head>
 
   <body>

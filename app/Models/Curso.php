@@ -11,4 +11,9 @@ class Curso extends Model
     protected $fillable = [
         'idCategoria', 'curso', 'descripcion', 'fecha_inicio', 'fecha_final', 'imagen', 'convocatoria'
     ];
+
+    public function certificados()
+    {
+        return $this->hasMany(Certificado::class, 'idCurso', 'id');
+    }
 }

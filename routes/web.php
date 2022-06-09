@@ -29,7 +29,7 @@ Route::group(['prefix' => 'administrador'], function () {
 
     Route::get('cursos', [CursoController::class, 'index'])->name('cursos');
     Route::post('saveCurso', [CursoController::class, 'store'])->name('saveCurso');
-    Route::get('deleteCurso/{curso}',[CursoController::class, 'destroy'])->name('deleteCurso');
+    Route::get('deleteCurso/{curso?}',[CursoController::class, 'destroy'])->name('deleteCurso');
     Route::post('updateCurso', [CursoController::class, 'update'])->name('updateCurso');
     Route::get('cargaCursos', [CursoController::class, 'carga'])->name('cargaCurso');
     Route::post('cargaCursos', [CursoController::class, 'cargaStore'])->name('cargaCursos_post');

@@ -18,6 +18,7 @@
                         <tr width="100%">
                             <th width="33%">Id</th>
                             <th width="33%">Curso</th>
+                            <th width="33%">Certificados</th>
                             <th width="33%">Convocatoria</th>
                             <th width="33%">Acciones</th>
                         </tr>
@@ -27,11 +28,12 @@
                             <tr>
                                 <td>{{ $curso->id }}</td>
                                 <td>{{ $curso->curso }}</td>
+                                <td class="text-center">{{ $curso->certificados_count }}</td>
                                 <td>{{ $curso->convocatoria }}</td>
                                 <td>
                                     <a href="#" onclick="editarCurso({{ $curso->id }})"><i
                                             class="fa fa-edit text-primary"></i></a>
-                                    <a href="{{ route('deleteCurso', $curso->id) }}"><i
+                                    <a href="#" onclick="eliminar({{ $curso->certificados_count }}, {{ $curso->id }}, '{{$ruta}}')"><i
                                             class="fa fa-trash text-danger"></i></a>
                                     <i class="fa fa-image text-warning" onclick="cargarImagen({{ $curso->id }})"></i>
                                 </td>
@@ -243,6 +245,23 @@
         function cargarImagen(idCurso) {
             $("#modaldemo3").modal('show')
             $("#idCursoImagen").val(idCurso)
+        }
+
+        function eliminar(count, idCurso, ruta) {
+            Swal.fire({
+                title: 'Deseas realmente eliminar, el curso? este contiene un total de '+count+' certificados, si lo eliminas, eliminas con el sus certificados.',
+                showDenyButton: true,
+                showCancelButton: true,
+                confirmButtonText: 'Eliminar',
+                denyButtonText: `No Eliminar`,
+                cancelButtonText: 'Cancelar'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = ruta+"/"+idCurso;
+                } else if (result.isDenied) {
+
+                }
+            })
         }
 
 

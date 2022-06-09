@@ -10,9 +10,12 @@ class CursoController extends Controller
 {
     public function index()
     {
-        $cursos = Curso::all();
+        $cursos = Curso::withCount('certificados')->get();
         $categorias = CategoriaCurso::all();
-        return view('curso.list', compact('cursos', 'categorias'));
+
+        $ruta = route('deleteCurso');
+
+        return view('curso.list', compact('cursos', 'categorias', 'ruta'));
     }
 
     public function store( Request $request )
