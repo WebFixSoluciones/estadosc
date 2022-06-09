@@ -21,6 +21,8 @@ class CertificadoController extends Controller
         $file = $request->file('certificados');
         $archivo = $this->upload_global($file, 'excels_certificados');
 
+
+
         if ($xlsx = SimpleXLSX::parse('uploads/excels_certificados/' . $archivo)) {
             $array = $xlsx->rows();
         } else {
