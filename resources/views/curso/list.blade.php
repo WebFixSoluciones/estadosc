@@ -74,32 +74,32 @@
 
                         <div class="form-group">
                             <label for="">Curso</label>
-                            <input type="text" name="curso" class="form-control">
+                            <input type="text" required name="curso" class="form-control">
                         </div>
 
                         <div class="form-group">
                             <label for="">Descripcion</label>
-                            <textarea name="descripcion" id="" class="form-control" rows="10"></textarea>
+                            <textarea name="descripcion" required id="" class="form-control" rows="10"></textarea>
                         </div>
 
                         <div class="form-group">
                             <label for="">Fecha Inicio</label>
-                            <input type="date" name="fecha_inicio" class="form-control">
+                            <input type="date" required name="fecha_inicio" class="form-control">
                         </div>
 
                         <div class="form-group">
                             <label for="">Fecha Fin</label>
-                            <input type="date" name="fecha_fin" class="form-control">
+                            <input type="date" required name="fecha_fin" class="form-control">
                         </div>
 
                         <div class="form-group">
                             <label for="">Convocatoria</label>
-                            <input type="text" name="convocatoria" class="form-control">
+                            <input type="text" required name="convocatoria" class="form-control">
                         </div>
 
                         <div class="form-group">
                             <label for="">Imagen</label>
-                            <input type="file" name="imagen" class="form-control">
+                            <input type="file" required name="imagen" class="form-control">
                         </div>
 
                 </div>
