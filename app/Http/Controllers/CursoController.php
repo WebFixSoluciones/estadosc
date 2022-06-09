@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\{CategoriaCurso, Curso, User};
+use App\Models\{CategoriaCurso, Certificado, Curso, User};
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Shuchkin\SimpleXLSX;
 
 class CursoController extends Controller
@@ -36,9 +37,17 @@ class CursoController extends Controller
 
     public function destroy(Curso $curso)
     {
+        $certificados = Certificado::where('idCurso', $curso->id)->get();
+        $count = Certificado::where('idCurso', $curso->id)->count();
+
+        foreach ($certificados as $certificado) {
+            DB::table('certificados')->delete($certificado->id);
+        }
+
         $curso->delete();
 
-        return back()->with('success', 'Curso eliminado con exito');
+
+        return back()->with('success', '1 Curso y '.$count.' Certificados eliminado con exito');
     }
 
 
