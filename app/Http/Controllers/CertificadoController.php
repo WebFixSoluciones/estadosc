@@ -21,43 +21,51 @@ class CertificadoController extends Controller
         $file = $request->file('certificados');
         $archivo = $this->upload_global($file, 'excels_certificados');
 
-
-
         if ($xlsx = SimpleXLSX::parse('uploads/excels_certificados/' . $archivo)) {
             $array = $xlsx->rows();
         } else {
             echo SimpleXLSX::parseError();
         }
         $i = 0;
-
+        $c = 0;
+        $n = 0;
         foreach ($array as $row) {
             $i++;
             if ($i > 8) {
                 $curso = Curso::where('convocatoria', $row[3])->first();
                 $user = User::whereDni($row[1])->count();
 
-                if ($user > 0) {
-                    $user = User::whereDni($row[1])->first();
-                } else {
-                    $user = User::create([
-                        'nombre' => $row[2],
-                        'usuario' => str_replace(" ", "", $row[2]),
-                        'rol_id' => 2,
-                        'dni' => $row[1],
-                        'clave' => sha1($row[1]),
-                        'estado' => 1
-                    ]);
-                }
+                if ($curso != null) {
+                    if ($user > 0) {
+                        $user = User::whereDni($row[1])->first();
+                    } else {
+                        $user = User::create([
+                            'nombre' => $row[2],
+                            'usuario' => str_replace(" ", "", $row[2]),
+                            'rol_id' => 2,
+                            'dni' => $row[1],
+                            'clave' => sha1($row[1]),
+                            'estado' => 1
+                        ]);
+                    }
 
-                $val =
-                    Certificado::updateOrCreate([
-                        'idUsuario' => $user->id,
-                        'idCurso' => $curso->id
-                    ]);
+                    $val =
+                        Certificado::updateOrCreate([
+                            'idUsuario' => $user->id,
+                            'idCurso' => $curso->id
+                        ]);
+                    $c++;
+                } else {
+                    $n++;
+                }
             }
         }
 
-        return redirect()->route('certificados')->with('success', 'Carga realizada con exito');
+        return redirect()->route('certificados')
+            ->with([
+                'success' => $c . ' Certificados cargados con exito',
+                'danger' => $n . ' Certificados no cargados (No existe la convocatoria)'
+            ]);
     }
 
     public function index()
@@ -85,7 +93,7 @@ class CertificadoController extends Controller
 
             foreach ($certificados as $certificado) {
                 $html .= "<tr>";
-                $html .= "<td>".$certificado->curso->curso."</td>";
+                $html .= "<td>" . $certificado->curso->curso . "</td>";
                 $html .= "<td> <a href='#' onclick='verCertificado($certificado->id)'> Descargar <i class='fa fa-eye'></i></a></td>";
                 $html .= "</tr>";
             }

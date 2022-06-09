@@ -10,6 +10,13 @@
                     <strong> {{ $message }} </strong>
                 </div>
             @endif
+
+            @if ($message = Session::get('danger'))
+                <div class="alert alert-danger alert-block mt-20" style="margin-top: 20px">
+                    <button type="button" class="close" data-dismiss="alert">×</button>
+                    <strong> {{ $message }} </strong>
+                </div>
+            @endif
             <div class="table-wrapper">
                 <table id="datatable1" style="width: 100%" class="table display responsive nowrap">
                     <thead>
