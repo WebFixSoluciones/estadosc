@@ -52,8 +52,10 @@
           </div><!-- menu-item -->
         </a><!-- br-menu-link -->
         <ul class="br-menu-sub nav flex-column">
-          <li class="nav-item"><a href="{{route('certificados')}}" class="nav-link">Certificados</a></li>
-          <li class="nav-item"><a href="{{route('cargarCertificados')}}" class="nav-link">Cargar Certificados</a></li>
+          <li class="nav-item"><a href="/modelos/carga-cursos.xlsx" class="nav-link">Carga Cursos</a></li>
+          <li class="nav-item"><a href="/modelos/carga-categorias.xlsx" class="nav-link">Carga Categorias</a></li>
+          <li class="nav-item"><a href="/modelos/carga-usuarios.xlsx" class="nav-link">Carga Usuarios</a></li>
+          <li class="nav-item"><a href="/modelos/carga-certificados.xlsx" class="nav-link">Carga Certificados</a></li>
         </ul>
 
       </div><!-- br-sideleft-menu -->
