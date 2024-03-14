@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('contenido')
-    <h4 class="tx-gray-800 mg-b-5">Listado de Certificados</h4>
+    <h4 class="tx-gray-800 mg-b-5">Consulta de Estados</h4>
     <div class="br-pagebody">
         <div class="br-section-wrapper">
             @if ($message = Session::get('success'))
@@ -24,7 +24,7 @@
                             <th width="">Id</th>
                             <th width="">DNI</th>
                             <th width="">Usuario</th>
-                            <th width="">Certificado</th>
+                            <th width="">Estado C</th>
                             <th width="">Acciones</th>
                         </tr>
                     </thead>

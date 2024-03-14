@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('contenido')
-        <h4 class="tx-gray-800 mg-b-5">Cargar Cursos</h4>
+        <h4 class="tx-gray-800 mg-b-5">Cargar Estado</h4>
     <div class="br-pagebody">
         <div class="br-section-wrapper">
             @if ($message = Session::get('success'))

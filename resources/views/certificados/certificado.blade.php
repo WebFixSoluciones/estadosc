@@ -39,7 +39,7 @@
 
 
         html {
-            background: url({{$imagen}});
+           /* background: url({{$imagen}});*/
             background-repeat: no-repeat;
             background-attachment: fixed;
             background-position: center center;
@@ -64,7 +64,7 @@
         }
 
         .curso {
-            color: red;
+            color: black;
             font-size: 40px;
             font-weight: 700;
             /* margin-top: 30px; */
@@ -98,9 +98,10 @@
 
     </style>
 </head>
+<!-- modal -->
+<!--<body style="background-image:url({{$imagen}}); background-size: 100%">-->
 
-<body style="background-image:url({{$imagen}}); background-size: 100%">
-
+    <body style="background-size:100%">
 
     <div class="convocatoria">
         {{ $certificado->curso->convocatoria }}

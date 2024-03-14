@@ -7,11 +7,13 @@ $(document).on("click", "#btnpng", function () {
 });
 
 $(document).on("click", "#btnpdf", function () {
-    var imgData = canvas.toDataURL('image/png');
-    var doc = new jsPDF('l', 'mm');
-    doc.addImage(imgData, 'PNG', 30, 15);
+   // var imgData = canvas.toDataURL('image/png');
+    var doc = new jsPDF('l', 'pt', 'a4'); 
+    doc.addImage(imgData, 'PNG', 0, 0);
     doc.save('Certificado.pdf');
 });
+
+
 
 var getUrlParameter = function getUrlParameter(sParam) {
     var sPageURL = decodeURIComponent(window.location.search.substring(1)),

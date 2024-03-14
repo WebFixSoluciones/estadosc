@@ -31,9 +31,9 @@
     <div class="d-flex align-items-center justify-content-center bg-br-primary ht-100v">
         <form action="{{ route('login_post') }}" method="post">
             @csrf
-            <div class="login-wrapper wd-300 wd-xs-350 pd-25 pd-xs-40 bg-white rounded shadow-base">
+            <div class="login-wrapper wd-400 wd-xs-350 pd-25 pd-xs-40 bg-white rounded shadow-base">
                 <!-- Capturando mensaje de error -->
-                <img src="https://corporativogruposur.com/wp-content/uploads/2022/03/LOGO-GPS-2021.png" width="250">
+                <img src="https://aspah.org/wp-content/uploads/2024/01/logo-aspah.jpg" width="250">
                 @if ($message = Session::get('danger'))
                     <div class="alert alert-danger alert-block mt-20" style="margin-top: 20px">
                         <button type="button" class="close" data-dismiss="alert">×</button>
@@ -42,11 +42,11 @@
                 @endif
             </div>
 
-            <div class="tx-center mg-b-30">Certificados y Diplomas</div>
+            <div class="tx-center mg-b-30"></div>
 
             <div class="form-group">
                 <input type="text" id="usu_correo" name="usu_correo" class="form-control"
-                    placeholder="Ingrese Correo Electronico">
+                    placeholder="Ingresar Usuario">
             </div>
             <div class="form-group">
                 <input type="password" id="usu_pass" name="usu_pass" class="form-control"
@@ -57,7 +57,6 @@
     </div>
     </form>
     </div>
-
     <script src="public/lib/jquery/jquery.js"></script>
     <script src="public/lib/popper.js/popper.js"></script>
     <script src="public/lib/bootstrap/bootstrap.js"></script>

@@ -33,7 +33,7 @@ class UserController extends Controller
             Auth::loginUsingId($user->id);
             return redirect()->route('home');
         } else {
-            return back()->with('danger', 'Datos No existen en la db');
+            return back()->with('danger', 'Su Usuario no existe');
         }
     }
 

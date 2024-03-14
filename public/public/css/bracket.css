@@ -14804,6 +14804,12 @@ textarea.parsley-success:focus {
   background-color: #212529;
 }
 
+
+.bg-azul {
+  background-color: #004995;
+}
+
+
 .bg-white-1 {
   background-color: rgba(255, 255, 255, 0.1);
 }
@@ -14882,6 +14888,10 @@ textarea.parsley-success:focus {
 
 .bg-purple {
   background-color: #6f42c1;
+}
+
+.bg-azul {
+  background-color: #004995;
 }
 
 .bg-pink {

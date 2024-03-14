@@ -132,7 +132,7 @@ class CertificadoController extends Controller
         $imagen = public_path('/uploads/imagenes_cursos/' . $certificado->curso->imagen);
         //$imagenBase64 = "data:image/png;base64," . base64_encode(file_get_contents($ruta));
         $pdf = \PDF::loadView('certificados.certificado', compact('certificado', 'ruta', 'imagen'));
-        $pdf->setPaper('a4', 'landscape');
+        $pdf->setPaper('A4', 'landscape');
         $pdf->render();
 
         return $pdf->download($certificado->curso->convocatoria . '-' . $certificado->usuario->dni . '.pdf');
@@ -145,7 +145,7 @@ class CertificadoController extends Controller
 
 
         $rutaFuente = asset('storage/fonts/Roboto-Bold.ttf');
-        $nombreImagen = 'http://localhost:8000/uploads/imagenes_cursos/' . $certificado->curso->imagen;
+        $nombreImagen = 'http://127.0.0.1:8000//uploads/imagenes_cursos/' . $certificado->curso->imagen;
         $imagen = imagecreatefromjpeg($nombreImagen);
         $color = imagecolorallocate($imagen, 0, 0, 0);
         $tamanio = 20;

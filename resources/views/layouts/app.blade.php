@@ -45,9 +45,16 @@
   <body>
 
     <!-- ########## START: LEFT PANEL ########## -->
-    <div class="br-logo"><a href=""><span>[</span>GRUPO SUR<span>]</span></a></div>
+    
+
+    <!-- ########## START: LOGO DE ADMIN ########## -->
+    <div class="br-logo"><a href="https://aspah.org/"><img src="https://aspah.org/wp-content/uploads/2024/01/logo-aspah.jpg" width="175"></a></div>
+
+
+
     @include('layouts.menu')
-    <!-- ########## END: LEFT PANEL ########## -->
+
+   <!-- ########## END: LEFT PANEL ########## -->
 
     <!-- ########## START: HEAD PANEL ########## -->
     <div class="br-header">

@@ -32,7 +32,7 @@ class CursoController extends Controller
             'convocatoria' => $request->convocatoria
         ]);
 
-        return back()->with('success', 'Curso registrado con exito');
+        return back()->with('success', 'Estados registrados con exito');
     }
 
     public function destroy(Curso $curso)
@@ -47,7 +47,7 @@ class CursoController extends Controller
         $curso->delete();
 
 
-        return back()->with('success', '1 Curso y '.$count.' Certificados eliminado con exito');
+        return back()->with('success', '1 Estado y '.$count.' Estado de Cuenta eliminado con exito');
     }
 
 

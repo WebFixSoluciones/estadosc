@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
 @section('contenido')
-    <h4 class="tx-gray-800 mg-b-5">Listado de Cursos</h4>
+    <h4 class="tx-gray-800 mg-b-5">Listado de Prestamos</h4>
     <button class="btn btn-success pull-right" data-toggle="modal" data-target="#modaldemo1"> <i
-            class="fa fa-plus-circle"></i> Agregar Curso</button>
+            class="fa fa-plus-circle"></i> Agregar Prestamo</button>
     <div class="br-pagebody">
         <div class="br-section-wrapper">
             @if ($message = Session::get('success'))
@@ -17,19 +17,30 @@
                     <thead>
                         <tr width="100%">
                             <th width="33%">Id</th>
-                            <th width="33%">Curso</th>
-                            <th width="33%">Certificados</th>
-                            <th width="33%">Convocatoria</th>
+
+                            <th width="33%">Documento</th>
+
+                            <th width="33%">Num. Prestamo</th>
+
+                            <th width="33%">Cant. Documento</th>
+                            
                             <th width="33%">Acciones</th>
+
                         </tr>
                     </thead>
                     <tbody>
                         @foreach ($cursos as $curso)
                             <tr>
                                 <td>{{ $curso->id }}</td>
+
                                 <td>{{ $curso->curso }}</td>
-                                <td class="text-center">{{ $curso->certificados_count }}</td>
+                                
                                 <td>{{ $curso->convocatoria }}</td>
+
+                                <td class="text-center">{{ $curso->certificados_count }}</td>
+
+                               
+
                                 <td>
                                     <a href="#" onclick="editarCurso({{ $curso->id }})"><i
                                             class="fa fa-edit text-primary"></i></a>
@@ -37,6 +48,9 @@
                                             class="fa fa-trash text-danger"></i></a>
                                     <i class="fa fa-image text-warning" onclick="cargarImagen({{ $curso->id }})"></i>
                                 </td>
+
+
+
                             </tr>
                         @endforeach
                     </tbody>
